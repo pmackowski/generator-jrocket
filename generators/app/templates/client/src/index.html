@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>JRocket</title>
+    <script src="lib/es6-shim.js"></script>
+    <script src="lib/system.js"></script>
+    <script src="lib/angular2.dev.js"></script>
+    <script src="lib/http.js"></script>
+    <script>
+        System.config({
+            packages: {
+                'components': {defaultExtension: 'js'},
+                'services': {defaultExtension: 'js'}
+            }
+        });
+        System.import('bootstrap.js');
+    </script>
+</head>
+<body>
+    <jrocket>Loading...</jrocket>
+</body>
+</html>
