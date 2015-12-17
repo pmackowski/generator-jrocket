@@ -7,7 +7,7 @@ var mkdirp = require('mkdirp');
 module.exports = yeoman.generators.Base.extend({
   prompting: function () {
     var done = this.async();
-
+    var questions = 3;
     // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the finest ' + chalk.red('generator-jrocket') + ' generator!'
@@ -17,22 +17,38 @@ module.exports = yeoman.generators.Base.extend({
       {
         type: 'string',
         name: 'baseName',
-        message: ' 1) What is the base name of the application?',
+        message: '(1/' + questions + ') What is the base name of your application?',
         default: 'app'
       },
       {
         type: 'string',
         name: 'packageName',
-        message: ' 2) What is your default package name?',
+        message: '(2/' + questions + ') What is your default Java package name?',
         default: 'com.myapp'
+      },
+      {
+        type: 'list',
+        name: 'testingFramework',
+        message: '(3/' + questions + ') Which testing framework would you like to use?',
+        choices: [
+          {
+            value: 'junit',
+            name: 'Junit with mockito (tests in src/test/java)'
+          },
+          {
+            value: 'spock',
+            name: 'Spock with groovy (tests in src/test/groovy)'
+          }
+        ],
+        default: 0
       }
     ];
 
     this.prompt(prompts, function (props) {
       this.props = props;
-      // To access props later use this.props.someOption;
       this.baseName = this.props.baseName;
       this.packageName = this.props.packageName;
+      this.testingFramework = this.props.testingFramework;
 
       done();
     }.bind(this));
@@ -57,6 +73,20 @@ module.exports = yeoman.generators.Base.extend({
     var resourcesDir = serverDir + 'src/main/resources/';
     this.template(resourcesDir + 'application.properties', resourcesDir + 'application.properties', this, {});
     this.template(resourcesDir + 'logback.xml', resourcesDir + 'logback.xml', this, {});
+
+    var resourcesTestDir = serverDir + 'src/test/resources/';
+    this.template(resourcesTestDir + 'application.properties', resourcesTestDir + 'application.properties', this, {});
+    if (this.testingFramework == 'spock') {
+      var testDir = 'src/test/groovy/';
+      var testSrcDir = serverDir + testDir;
+      var testDestDir = testSrcDir + packageFolder + '/';
+      this.template(testSrcDir + 'ApplicationSpec.groovy', testDestDir + 'ApplicationSpec.groovy', this, {});
+    } else {
+      var testDir = 'src/test/java/';
+      var testSrcDir = serverDir + testDir;
+      var testDestDir = testSrcDir + packageFolder + '/';
+      this.template(testSrcDir + 'ApplicationTest.java', testDestDir + 'ApplicationTest.java', this, {});
+    }
 
     // create client
     var clientDir = 'client/';
