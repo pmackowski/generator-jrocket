@@ -103,7 +103,7 @@ module.exports = yeoman.generators.Base.extend({
 
     var clientComponentsSrcDir = clientSrcDir + 'components/';
     this.template(clientComponentsSrcDir + 'app/app.component.ts', clientComponentsSrcDir + 'app/app.component.ts', this, {});
-    this.template(clientComponentsSrcDir + 'app/app.component.spec.ts', clientComponentsSrcDir + 'app/app.component.spec.ts', this, {});
+    //this.template(clientComponentsSrcDir + 'app/app.component.spec.ts', clientComponentsSrcDir + 'app/app.component.spec.ts', this, {});
 
     var clientServicesSrcDir = clientSrcDir + 'services/';
     this.template(clientServicesSrcDir + 'hello-world.service.ts', clientServicesSrcDir + 'hello-world.service.ts', this, {});
