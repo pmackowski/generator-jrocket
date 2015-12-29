@@ -3,8 +3,10 @@ module.exports = function (gulp, plugins) {
         gulp.src([
             'node_modules/es6-shim/es6-shim.js',
             'node_modules/systemjs/dist/system.js',
+            'node_modules/angular2/bundles/angular2-polyfills.js',
             'node_modules/angular2/bundles/angular2.dev.js',
-            'node_modules/angular2/bundles/http.js'])
+            'node_modules/angular2/bundles/http.js',
+            'node_modules/rxjs/bundles/Rx.js'])
             .pipe(gulp.dest('dist/lib'));
     };
 };
