@@ -1,12 +1,12 @@
 module.exports = function (gulp, plugins, libs) {
     return function () {
-
-        gulp.src(libs)
-            .pipe(plugins.ignore.include('**/*.css'))
-            .pipe(gulp.dest('dist/css'));
-
-        gulp.src(libs)
-            .pipe(plugins.ignore.include('**/*.js'))
-            .pipe(gulp.dest('dist/lib'));
+        moveLibsToDist('**/*.css', 'dist/css');
+        moveLibsToDist('**/*.js', 'dist/lib');
     };
+
+    function moveLibsToDist(pattern, distDirectory) {
+        gulp.src(libs)
+            .pipe(plugins.ignore.include(pattern))
+            .pipe(gulp.dest(distDirectory));
+    }
 };
