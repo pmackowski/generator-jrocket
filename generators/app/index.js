@@ -113,6 +113,7 @@ module.exports = yeoman.generators.Base.extend({
     this.template(clientToolsGulpTasksSrcDir + 'clean.js', clientToolsGulpTasksSrcDir + 'clean.js', this, {});
     this.template(clientToolsGulpTasksSrcDir + 'css.js', clientToolsGulpTasksSrcDir + 'css.js', this, {});
     this.template(clientToolsGulpTasksSrcDir + 'html.js', clientToolsGulpTasksSrcDir + 'html.js', this, {});
+    this.template(clientToolsGulpTasksSrcDir + 'inject.js', clientToolsGulpTasksSrcDir + 'inject.js', this, {});
     this.template(clientToolsGulpTasksSrcDir + 'lib.js', clientToolsGulpTasksSrcDir + 'lib.js', this, {});
     this.template(clientToolsGulpTasksSrcDir + 'serve.js', clientToolsGulpTasksSrcDir + 'serve.js', this, {});
     this.template(clientToolsGulpTasksSrcDir + 'test.js', clientToolsGulpTasksSrcDir + 'test.js', this, {});

@@ -1,12 +1,15 @@
 <html>
 <head>
     <title>JRocket</title>
-    <script src="lib/angular2-polyfills.js"></script>
-    <script src="lib/es6-shim.js"></script>
-    <script src="lib/system.js"></script>
-    <script src="lib/angular2.dev.js"></script>
-    <script src="lib/http.js"></script>
-    <script src="lib/Rx.js"></script>
+    <!-- inject:css -->
+    <!-- endinject -->
+</head>
+<body>
+    <jrocket>Loading...</jrocket>
+
+    <!-- inject:js -->
+    <!-- endinject -->
+
     <script>
         System.config({
             packages: {
@@ -16,8 +19,6 @@
         });
         System.import('bootstrap.js');
     </script>
-</head>
-<body>
-    <jrocket>Loading...</jrocket>
+
 </body>
 </html>

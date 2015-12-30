@@ -1,12 +1,12 @@
-module.exports = function (gulp, plugins) {
+module.exports = function (gulp, plugins, libs) {
     return function () {
-        gulp.src([
-            'node_modules/es6-shim/es6-shim.js',
-            'node_modules/systemjs/dist/system.js',
-            'node_modules/angular2/bundles/angular2-polyfills.js',
-            'node_modules/angular2/bundles/angular2.dev.js',
-            'node_modules/angular2/bundles/http.js',
-            'node_modules/rxjs/bundles/Rx.js'])
+
+        gulp.src(libs)
+            .pipe(plugins.ignore.include('**/*.css'))
+            .pipe(gulp.dest('dist/css'));
+
+        gulp.src(libs)
+            .pipe(plugins.ignore.include('**/*.js'))
             .pipe(gulp.dest('dist/lib'));
     };
 };
