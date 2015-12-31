@@ -10,6 +10,7 @@ var libs = [
     'node_modules/angular2/bundles/angular2-polyfills.js',
     'node_modules/angular2/bundles/angular2.dev.js',
     'node_modules/angular2/bundles/http.js',
+    'node_modules/angular2/bundles/router.js',
     'node_modules/rxjs/bundles/Rx.js'
 ];
 

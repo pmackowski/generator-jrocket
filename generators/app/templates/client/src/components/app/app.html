@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-xs-right">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['Home']">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['Hello']">Hello</a>
+                </li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">JRocket</h3>
+    </div>
+
+    <div class="jumbotron">
+        <router-outlet></router-outlet>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; Company 2014</p>
+    </footer>
+
+</div>
